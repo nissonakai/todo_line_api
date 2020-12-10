@@ -1,0 +1,14 @@
+set -e
+
+cp .env.sample .env
+
+docker-compose build
+
+docker-compose run --rm web bundle exec rails new . --force --database=postgresql --api --skip-test
+
+cp -f template/database.yml config/database.yml
+
+docker-compose build
+
+docker-compose run --rm web bin/rails db:create
+docker-compose run --rm web bin/rails db:migrate
