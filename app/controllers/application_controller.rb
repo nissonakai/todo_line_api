@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::API
-    include ActionController::RequestForgeryProtection 
+    include ActionController::RequestForgeryProtection
 end
