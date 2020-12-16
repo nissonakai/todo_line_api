@@ -26,9 +26,8 @@ RUN apk update && \
   bundle config --global jobs 4 && \
   bundle install && \
   rm -rf ~/.gem && \
-  rm -f tmp/pids/server.pid
-  # rm -f tmp/pids/server.pid && \
-  # apk del build-dependencies
+  rm -f tmp/pids/server.pid && \
+  apk del build-dependencies
 COPY . $APP_ROOT
 
 EXPOSE 3001
